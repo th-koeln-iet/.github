@@ -20,3 +20,7 @@ Navigate to the folder of the required dependency and build it
 
 Then install using pip:
 - e.g. `pip install ./dist/OpenDSSWrapper-0.1.1-py3-none-any.whl` (adjust project name and version number)
+
+### Development
+During development `pip install -e .` is sufficient.
+`pip install -e .` is a command that installs a Python package in "editable mode" (also known as "develop mode" or "in-place installation"). The -e flag stands for "editable". When you run this command, pip will install the package in such a way that any changes you make to the package's source code will be immediately reflected in your Python environment, without the need to reinstall the package each time you make changes.

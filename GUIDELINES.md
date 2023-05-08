@@ -1,4 +1,4 @@
-# TH Köln Institut für Elektrische Energietechnik
+# Guidelines
 
 ## Respository Structure
 Each repository contains at least the following folders:

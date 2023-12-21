@@ -8,19 +8,33 @@ Each repository contains at least the following folders:
 
 ## Coding guidelines
 - use [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/)
-- bump version number in setup.py and README.md after changes
-  - Version numbers follow the scheme: Major.Minor.Patch
+- Add a README.md file to every project detailing the project's goal, structure, installation and any further information you deem relevant to first time users.
+
+### Package build
+- create a `setup.py` or a `pyproject.toml` file 
+  - `pyproject.toml` is preferred
+  - Consistently update version numbers 
+    - follow the scheme: Major.Minor.Patch
+    - MAJOR version when you make incompatible API changes
+    - MINOR version when you add functionality in a backward compatible manner
+    - PATCH version when you make backward compatible bug fixes
+
 
 ## Install local dependencies
+Create a virtual environment (if not yet done):
+- `python -m venv /path/to/venv`
+
 Enter your virtual environment:
-- `source venv/bin/activate`
+- `source /path/to/venv/bin/activate`
 
-Navigate to the folder of the required dependency and build it
-- `python3 setup.py bdist_wheel`
+Navigate to the folder of the required dependency and install using pip
+- `pip install .`
 
-Then install using pip:
-- e.g. `pip install ./dist/OpenDSSWrapper-0.1.1-py3-none-any.whl` (adjust project name and version number)
+or 
+- `pip install -e .`
+to install in editable mode in which changes to the source code will be immediately reflected in your Python environment, without the need to reinstall the package each time you make changes.
 
-### Development
-During development `pip install -e .` is sufficient.
-`pip install -e .` is a command that installs a Python package in "editable mode" (also known as "develop mode" or "in-place installation"). The -e flag stands for "editable". When you run this command, pip will install the package in such a way that any changes you make to the package's source code will be immediately reflected in your Python environment, without the need to reinstall the package each time you make changes.
+If PyCharm does not recognize the locally installed dependency:
+- go to settings (shortcut `CTRL`+`Alt`+`s`)
+- navigate to your project > project dependencies
+- activate all project the chosen project depends on
